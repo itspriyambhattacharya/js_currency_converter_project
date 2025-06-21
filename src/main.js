@@ -4,11 +4,16 @@ const inpSelect = document.querySelector("#in-countries");
 const outSelect = document.querySelector("#out-countries");
 const inpField = document.querySelector("#in-amount");
 const outField = document.querySelector("#out-amount");
+const submitBtn = document.querySelector(`button[type="button"]`);
 
-const inpVal = inpField.value;
 console.log(inpSelect);
 console.log(outSelect);
-console.log(inpVal);
+const inpVal = undefined; // to store the input value
+
+submitBtn.addEventListener("click", (e) => {
+  inpVal = inpField.value;
+  console.log(inpVal);
+});
 
 async function currencyConverter() {
   const url = `https://v6.exchangerate-api.com/v6/f5e69d3255659c4b6fefb7ca/latest/USD`;
