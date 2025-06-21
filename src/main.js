@@ -33,11 +33,13 @@ async function currencyConverter() {
 }
 
 async function convertCurrency(from, to, amt) {
-  const url = `https://v6.exchangerate-api.com/v6/f5e69d3255659c4b6fefb7ca/latest/USD`;
+  const url = `https://v6.exchangerate-api.com/v6/f5e69d3255659c4b6fefb7ca/latest/${from}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
-    let res = (to / from) * amt;
+    const fromValue = data.conversion_rates.from;
+    const toValue = data.conversion_rates.to;
+    let res = (toValue / fromValue) * amt;
     outField.value = res;
   } catch (err) {
     console.log(`Error occured while fetching: ${err}`);
