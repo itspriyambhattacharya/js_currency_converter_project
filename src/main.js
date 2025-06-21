@@ -45,7 +45,7 @@ async function convertCurrency(from, to, amt) {
   }
 }
 
-// currencyConverter();
+currencyConverter();
 
 submitBtn.addEventListener("click", (e) => {
   const inpSelectVal = inpSelect.value; // value of input select  from option
