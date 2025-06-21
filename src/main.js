@@ -15,6 +15,7 @@ async function currencyConverter() {
       const optionElem = document.createElement("option");
       optionElem.innerHTML = key;
       inpSelect.appendChild(optionElem);
+      outSelect.innerHTML = key;
     }
   } catch (err) {
     console.log(`Error occured while fetching: ${err}`);
