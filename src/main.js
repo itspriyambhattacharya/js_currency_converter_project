@@ -37,10 +37,9 @@ async function convertCurrency(from, to, amt) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    const fromValue = data.conversion_rates.from;
-    const toValue = data.conversion_rates.to;
-    let res = (toValue / fromValue) * amt;
-    outField.value = res;
+    const toValue = data.conversion_rates[to];
+    let res = toValue * amt;
+    outField.value = res.toFixed(2);
   } catch (err) {
     console.log(`Error occured while fetching: ${err}`);
   }
@@ -51,7 +50,19 @@ async function convertCurrency(from, to, amt) {
 submitBtn.addEventListener("click", (e) => {
   const inpSelectVal = inpSelect.value; // value of input select  from option
   const outSelectVal = outSelect.value; // value of output select from option
+
   inpVal = inpField.value;
+  inpVal = Number(inpVal);
+
+  if (
+    inpSelectVal === "Select country" ||
+    outSelectVal === "Select country" ||
+    isNaN(inpVal) ||
+    inpVal <= 0
+  ) {
+    alert("Please select valid currencies and enter a valid amount.");
+    return;
+  }
 
   convertCurrency(inpSelectVal, outSelectVal, inpVal);
 
