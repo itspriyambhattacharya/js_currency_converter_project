@@ -12,10 +12,12 @@ async function currencyConverter() {
     const data = await response.json();
     console.log(data);
     for (const key in data.conversion_rates) {
-      const optionElem = document.createElement("option");
-      optionElem.innerHTML = key;
-      inpSelect.appendChild(optionElem);
-      outSelect.innerHTML = key;
+      const optionElemInp = document.createElement("option");
+      const optionElemOut = document.createElement("option");
+      optionElemInp.innerHTML = key;
+      optionElemOut.innerHTML = key;
+      inpSelect.appendChild(optionElemInp);
+      outSelect.appendChild(optionElemOut);
     }
   } catch (err) {
     console.log(`Error occured while fetching: ${err}`);
