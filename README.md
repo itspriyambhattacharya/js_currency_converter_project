@@ -196,4 +196,3 @@ Contributions are welcome and appreciated!
 - Add loading spinner while fetching exchange data
 - Show historical exchange trends via chart.js
 - Add multiple language support
-- Deploy the app for global access
