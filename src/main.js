@@ -11,6 +11,11 @@ async function currencyConverter() {
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
+    for (const key in data.conversion_rates) {
+      const optionElem = document.createElement("option");
+      optionElem.innerHTML = key;
+      inpSelect.appendChild(optionElem);
+    }
   } catch (err) {
     console.log(`Error occured while fetching: ${err}`);
   }
