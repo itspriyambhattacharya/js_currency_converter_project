@@ -2,6 +2,8 @@ import "./style.css";
 
 const inpSelect = document.querySelector("#in-countries");
 const outSelect = document.querySelector("#out-countries");
+const intAmt = document.querySelector("#in-amount");
+const outAmt = document.querySelector("#out-amount");
 console.log(inpSelect);
 console.log(outSelect);
 
